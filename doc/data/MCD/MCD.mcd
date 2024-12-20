@@ -1,0 +1,14 @@
+MILK: nom
+CONTAINS_MILK, 0N MILK, 01 BUBBLE_TEA
+CONTAINS_TOPPING, 0N TOPPING, 0N BUBBLE_TEA
+TOPPING: nom
+
+CONTAINS_PEARL, 0N PEARL, 11 BUBBLE_TEA
+BUBBLE_TEA: nom, type, image, icone
+CONTAINS_BUBBLE_TEA, 0N COLLECTION, 11 BUBBLE_TEA
+COLLECTION: nom, image_collection, prix_l, prix_xl
+
+PEARL: nom
+CONTAINS_TEA, 0N TEA, 0N BUBBLE_TEA
+TEA: nom
+BAR: nom, adresse, horaires, image1, image2, image3, image4, image5
