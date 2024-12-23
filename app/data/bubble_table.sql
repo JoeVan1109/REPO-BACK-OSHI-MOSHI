@@ -80,9 +80,22 @@ VALUES
 -- Insertion des données dans la table "bubble_tea"
 INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "icone", "collection_id", "milk_id", "topping_id", "pearl_id", "created_at", "updated_at")
 VALUES
+
+-- Collectioon florale
 ('Quartz Rose', 5.90, 6.90, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Améthyste', 5.90, 6.90, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Bloody Mary', 5.90, 6.90, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL);
+('Bloody Mary', 5.90, 6.90, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+
+--Collection magique
+('Bubble tea Licorne', NULL, 7.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Bubble tea Sirène', NULL, 7.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+
+--Collection Olympe
+('Zeus', NULL, 8.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Athéna', NULL, 8.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Poséidon', NULL, 8.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Arès', NULL, 8.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Hadès', NULL, 8.50, NULL, NULL, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 
 -- Insertion des relations multiples dans la table de jonction "bubble_tea_tea"
 INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id") VALUES
