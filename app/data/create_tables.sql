@@ -1,7 +1,7 @@
 BEGIN;
 
 -- Suppression des tables existantes pour éviter les conflits
-DROP TABLE IF EXISTS "bar", "bubble_tea", "tea", "milk", "topping", "pearl", "collection";
+DROP TABLE IF EXISTS "bar", "bubble_tea_tea", "bubble_tea_pearl", "bubble_tea_topping", "bubble_tea", "tea", "milk", "topping", "pearl", "collection";
 
 -- Création de la table "bar"
 CREATE TABLE "bar" (
@@ -65,10 +65,7 @@ CREATE TABLE "bubble_tea" (
     "image" text,
     "icone" text,
     "collection_id" INTEGER REFERENCES "collection"("id"),
-    "tea_id" INTEGER REFERENCES "tea"("id"),
     "milk_id" INTEGER REFERENCES "milk"("id"),
-    "topping_id" INTEGER REFERENCES "topping"("id"),
-    "pearl_id" INTEGER REFERENCES "pearl"("id"),
     "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" timestamptz
 );
@@ -78,6 +75,20 @@ CREATE TABLE "bubble_tea_tea" (
     "bubble_tea_id" integer REFERENCES "bubble_tea"("id"),
     "tea_id" integer REFERENCES "tea"("id"),
     PRIMARY KEY ("bubble_tea_id", "tea_id")
+);
+
+-- Création de la table de jonction "bubble_tea_pearl" pour gérer la relation plusieurs à plusieurs entre "bubble_tea" et "pearl"
+CREATE TABLE "bubble_tea_pearl" (
+    "bubble_tea_id" integer REFERENCES "bubble_tea"("id"),
+    "pearl_id" integer REFERENCES "pearl"("id"),
+    PRIMARY KEY ("bubble_tea_id", "pearl_id")
+);
+
+-- Création de la table de jonction "bubble_tea_topping" pour gérer la relation plusieurs à plusieurs entre "bubble_tea" et "topping"
+CREATE TABLE "bubble_tea_topping" (
+    "bubble_tea_id" integer REFERENCES "bubble_tea"("id"),
+    "topping_id" integer REFERENCES "topping"("id"),
+    PRIMARY KEY ("bubble_tea_id", "topping_id")
 );
 
 -- Ajout de la référence à "bubble_tea" dans la table "collection"
