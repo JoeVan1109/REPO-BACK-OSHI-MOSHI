@@ -103,53 +103,81 @@ VALUES
 ('Poséidon', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Arès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Hadès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL)
+('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Crême Brulée', 7.50, 8.50, NULL, NULL, NULL, 19, CURRENT_TIMESTAMP, NULL),
+('Tiramisu', 7.50, 8.50, NULL, NULL, NULL, 20, CURRENT_TIMESTAMP, NULL),
+('Bubble Mojito Citron', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Bubble Mojito Fraise', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Bubble Mojito Passion', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL)
 ON CONFLICT ("name") DO NOTHING;
 
 -- Insertion des relations multiples dans la table de jonction "bubble_tea_tea"
 INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id") VALUES
 
--- Bubble Tea Quartz Rose
+-- Quartz Rose
 ((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "tea" WHERE name = 'Rose')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "tea" WHERE name = 'Cerise')),
 
--- Bubble Tea Améthyste
+-- Améthyste
 ((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "tea" WHERE name = 'Violette')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "tea" WHERE name = 'Litchi')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "tea" WHERE name = 'Myrtille')),
 
--- Bubble Tea Bloody Mary
+-- Bloody Mary
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bloody Mary'), (SELECT id FROM "tea" WHERE name = 'Rose')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bloody Mary'), (SELECT id FROM "tea" WHERE name = 'Framboise')),
 
--- Bubble Tea Bubble Tea Licorne
+-- Bubble Tea Licorne
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Licorne'), (SELECT id FROM "tea" WHERE name = 'Cerise')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Licorne'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Licorne'), (SELECT id FROM "tea" WHERE name = 'Citron vert')),
 
--- Bubble Tea Bubble Tea Sirène
+-- Bubble Tea Sirène
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Mangue')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Citron vert')),
 
--- Bubble Tea Zeus
+-- Zeus
 ((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "tea" WHERE name = 'Mangue')),
 
--- Bubble Tea Athena
+-- Athéna
 ((SELECT id FROM "bubble_tea" WHERE name = 'Athéna'), (SELECT id FROM "tea" WHERE name = 'Pêche')),
 
--- Bubble Tea Poseidon
+-- Poséidon
 ((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "tea" WHERE name = 'Curaçao (sans alcool)')),
 
--- Bubble Tea Arès
+-- Arès
 ((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "tea" WHERE name = 'Framboise')),
 
--- Bubble Tea Hadès
+-- Hadès
 ((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "tea" WHERE name = 'Basilic')),
 
--- Bubble Tea Akatsuki
+-- Akatsuki
 ((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "tea" WHERE name = 'Passion')),
+
+-- Mojito Citron
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Citron')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
+
+-- Mojito Fraise
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
+
+-- Mojito Passion
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Passion')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante'))
+
+ON CONFLICT (bubble_tea_id, tea_id) DO NOTHING;
 
 COMMIT;
