@@ -27,7 +27,6 @@ VALUES
 ('Thé chaï', CURRENT_TIMESTAMP, NULL),
 ('Citron vert', CURRENT_TIMESTAMP, NULL),
 ('Violette', CURRENT_TIMESTAMP, NULL),
-('Basilic', CURRENT_TIMESTAMP, NULL),
 ('Curaçao (sans alcool)', CURRENT_TIMESTAMP, NULL),
 ('Mojito (sans alcool)', CURRENT_TIMESTAMP, NULL),
 ('Rhum (sans alcool)', CURRENT_TIMESTAMP, NULL),
@@ -86,6 +85,7 @@ VALUES
 ('Cardamone', CURRENT_TIMESTAMP, NULL),
 ('Citron', CURRENT_TIMESTAMP, NULL),
 ('Fleur de sureau', CURRENT_TIMESTAMP, NULL),
+('Basilic', CURRENT_TIMESTAMP, NULL),
 ('Chocolat', CURRENT_TIMESTAMP, NULL);
 
 
@@ -113,7 +113,7 @@ VALUES
 ('Arès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Hadès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Crême Brûlée', 7.50, 8.50, NULL, NULL, NULL, 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', 7.50, 8.50, NULL, NULL, NULL, 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
 ('Tiramisu', 7.50, 8.50, NULL, NULL, NULL, 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
 ('Mojito Citron', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
 ('Mojito Fraise', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
@@ -121,9 +121,9 @@ VALUES
 
 
 
--- Insertion des relations multiples dans la table de jonction "bubble_tea_tea"
-INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id") VALUES
-
+-- Insertion des relations
+INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id")
+VALUES
 -- Quartz Rose
 ((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "tea" WHERE name = 'Rose')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "tea" WHERE name = 'Cerise')),
@@ -142,6 +142,7 @@ INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id") VALUES
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tea Licorne'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tea Licorne'), (SELECT id FROM "tea" WHERE name = 'Citron vert')),
 
+-- Tea Sirène
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Mangue')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "tea" WHERE name = 'Citron vert')),
@@ -152,50 +153,48 @@ INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id") VALUES
 ((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "tea" WHERE name = 'Curaçao (sans alcool)')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "tea" WHERE name = 'Framboise')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "tea" WHERE name = 'Basilic')),
 
 -- Akatsuki
 ((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "tea" WHERE name = 'Passion')),
 
-
 -- Collection California Dream
 
 -- Mojito Citron
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Citron')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Citron')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
 
 -- Mojito Fraise
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante')),
 
 -- Mojito Passion
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Passion')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bubble Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante'));
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Mojito (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Rhum (sans alcool)')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Passion')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Thé bleu')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "tea" WHERE name = 'Eau pétillante'));
+
 
 
 -- Insertion des relations multiples dans la table de jonction "bubble_tea_topping"
 INSERT INTO "bubble_tea_topping" ("bubble_tea_id", "topping_id") VALUES
 
-
 -- Collection Olympe
-((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "topping" WHERE name = 'Gimgembre')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "topping" WHERE name = 'Gingembre')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Athéna'), (SELECT id FROM "topping" WHERE name = 'Cardamone')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "topping" WHERE name = 'Citron')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "topping" WHERE name = 'Fleur de sureau')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "topping" WHERE name = 'Basilic')),
 
 -- Collection Akatsuki
-((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "topping" WHERE name = 'Cream Cheese')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "topping" WHERE name = 'Cream cheese')),
 
 -- Collection Sweet'N Chill
 ((SELECT id FROM "bubble_tea" WHERE name = 'Crème Brûlée'), (SELECT id FROM "topping" WHERE name = 'Mousse onctueuse à la vanille')),
@@ -205,14 +204,11 @@ INSERT INTO "bubble_tea_topping" ("bubble_tea_id", "topping_id") VALUES
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "topping" WHERE name = 'Dalgona café')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "topping" WHERE name = 'Coulis de chocolat noir')),
 ((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "topping" WHERE name = 'Mousse onctueuse')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "topping" WHERE name = 'Cacaco en poudre')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "topping" WHERE name = 'Cacao en poudre')),
 
 -- Collection California Dream
-
 ((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "topping" WHERE name = 'Menthe')),
-
 ((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "topping" WHERE name = 'Menthe')),
-
 ((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "topping" WHERE name = 'Menthe'));
 
 
