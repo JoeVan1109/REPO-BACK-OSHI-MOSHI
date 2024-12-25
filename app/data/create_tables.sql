@@ -66,8 +66,8 @@ CREATE TABLE "bubble_tea" (
     "prixXL" INTEGER NULL,
     "image" text,
     "icone" text,
-    "collection_id" integer REFERENCES "collection"("id"),
-    "milk_id" integer REFERENCES "milk"("id"),
+    "collection_name" text REFERENCES "collection"("name"),
+    "milk_name" text REFERENCES "milk"("name"),
     "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" timestamptz
 );
