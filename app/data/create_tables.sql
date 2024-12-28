@@ -66,10 +66,16 @@ CREATE TABLE "bubble_tea" (
     "prixXL" INTEGER NULL,
     "image" text,
     "icone" text,
-    "collection_name" text REFERENCES "collection"("name"),
     "milk_name" text REFERENCES "milk"("name"),
     "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" timestamptz
+);
+
+-- Création de la table de jonction "collection_bubble_tea" pour gérer la relation plusieurs à plusieurs entre "collection" et "bubble_tea"
+CREATE TABLE "collection_bubble_tea" (
+    "collection_id" integer REFERENCES "collection"("id"),
+    "bubble_tea_id" integer REFERENCES "bubble_tea"("id"),
+    PRIMARY KEY ("collection_id", "bubble_tea_id")
 );
 
 -- Création de la table de jonction "bubble_tea_tea" pour gérer la relation plusieurs à plusieurs entre "bubble_tea" et "tea"

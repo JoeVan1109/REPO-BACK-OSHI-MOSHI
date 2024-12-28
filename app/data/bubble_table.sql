@@ -92,36 +92,80 @@ VALUES
 -- Inser tion collection
 INSERT INTO "collection" ("name", "image_collection", "created_at", "updated_at")
 VALUES
-('Collection florale', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection magique', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection olympe', NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Florale', NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Magique', NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Olympe', NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection Akatsuki', NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection Sweet''N Chill', NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection California Dream', NULL, CURRENT_TIMESTAMP, NULL);
 
 -- Insertion des données dans la table "bubble_tea"
-INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "icone", "collection_name", "milk_name", "created_at", "updated_at")
+INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "icone", "milk_name", "created_at", "updated_at")
 VALUES
-('Quartz Rose', 5.90, 6.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Améthyste', 5.90, 6.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Bloody Mary', 5.90, 6.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Licorne', NULL, 7.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Sirène', NULL, 7.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Zeus', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Athéna', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Poséidon', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Arès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Hadès', NULL, 8.50, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Crème Brûlée', 7.50, 8.50, NULL, NULL, NULL, 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
-('Tiramisu', 7.50, 8.50, NULL, NULL, NULL, 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
-('Mojito Citron', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Fraise', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Passion', 6.90, 7.90, NULL, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL);
+('Quartz Rose', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Améthyste', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Bloody Mary', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Licorne', NULL, 7.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Sirène', NULL, 7.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Zeus', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Athéna', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Poséidon', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Arès', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Hadès', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', 7.50, 8.50, NULL, NULL, 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Tiramisu', 7.50, 8.50, NULL, NULL,  'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
+('Mojito Citron', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Fraise', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Passion', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL);
 
 
 
--- Insertion des relations
+-- Insertion des relations collection
+INSERT INTO "collection_bubble_tea" ("bubble_tea_id", "collection_id")
+VALUES
+-- Quartz Rose
+((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "collection" WHERE name = 'Collection Florale')),
+
+-- Améthyste
+((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "collection" WHERE name = 'Collection Florale')),
+
+-- Bloody Mary
+((SELECT id FROM "bubble_tea" WHERE name = 'Bloody Mary'), (SELECT id FROM "collection" WHERE name = 'Collection Florale')),
+
+-- Tea Magique
+((SELECT id FROM "bubble_tea" WHERE name = 'Tea Licorne'), (SELECT id FROM "collection" WHERE name = 'Collection Magique')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "collection" WHERE name = 'Collection Magique')),
+
+-- Collection Olympe
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "collection" WHERE name = 'Collection Olympe')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Athéna'), (SELECT id FROM "collection" WHERE name = 'Collection Olympe')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "collection" WHERE name = 'Collection Olympe')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "collection" WHERE name = 'Collection Olympe')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "collection" WHERE name = 'Collection Olympe')),
+
+-- Collection Akatsuki
+((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "collection" WHERE name = 'Collection Akatsuki')),
+
+-- Collection Sweet'N Chill
+((SELECT id FROM "bubble_tea" WHERE name = 'Crème Brûlée'), (SELECT id FROM "collection" WHERE name = 'Collection Sweet''N Chill')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "collection" WHERE name = 'Collection Sweet''N Chill')),
+
+-- Collection California Dream
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "collection" WHERE name = 'Collection California Dream')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "collection" WHERE name = 'Collection California Dream')),
+
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "collection" WHERE name = 'Collection California Dream'));
+
+-- Insertion des relations tea
 INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id")
 VALUES
 -- Quartz Rose
