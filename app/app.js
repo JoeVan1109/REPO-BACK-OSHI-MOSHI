@@ -10,7 +10,7 @@ export const app = express();
 // Use CORS middleware with the specified origin from the .env file
 app.use(
     cors({
-        origin: process.env.CORS, // value file's .env
+        origin: process.env.CORS, // value from .env file
     })
 );
 
@@ -18,5 +18,4 @@ app.use(
 app.use(express.json());
 
 // Use the main router for handling routes
-
 app.use(router);

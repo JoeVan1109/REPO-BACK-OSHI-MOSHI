@@ -1,18 +1,18 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database.js';
-import { Bar } from './bar.js';
-import { Tea } from './tea.js';
-import { Milk } from './milk.js';
-import { Topping } from './topping.js';
-import { Pearl } from './pearl.js';
-import { Collection } from './collection.js';
-import { BubbleTea } from './bubble_tea.js';
-import { BubbleTeaPearl } from './bubble_tea_pearl.js';
-import { BubbleTeaTea } from './bubble_tea_tea.js';
-import { BubbleTeaTopping } from './bubble_tea_topping.js';
-import { CollectionBubbleTea } from './collection_bubble_tea.js';
+import Bar from './bar.js';
+import Tea from './tea.js';
+import Milk from './milk.js';
+import Topping from './topping.js';
+import Pearl from './pearl.js';
+import Collection from './collection.js';
+import BubbleTea from './bubble_tea.js';
+import BubbleTeaPearl from './bubble_tea_pearl.js';
+import BubbleTeaTea from './bubble_tea_tea.js';
+import BubbleTeaTopping from './bubble_tea_topping.js';
+import CollectionBubbleTea from './collection_bubble_tea.js';
 
-function initModels(sequelize) {
+function initModels() {
   const bar = Bar(sequelize, DataTypes);
   const bubble_tea = BubbleTea(sequelize, DataTypes);
   const bubble_tea_pearl = BubbleTeaPearl(sequelize, DataTypes);
@@ -34,8 +34,10 @@ function initModels(sequelize) {
   bubble_tea.belongsToMany(topping, { through: bubble_tea_topping });
   topping.belongsToMany(bubble_tea, { through: bubble_tea_topping });
 
-  collection.belongsToMany(bubble_tea, { through: collection_bubble_tea });
-  bubble_tea.belongsToMany(collection, { through: collection_bubble_tea });
+  // Un bubble_tea n'a qu'une seule collection
+  bubble_tea.belongsTo(collection, { foreignKey: 'collection_id' });
+  // Une collection peut avoir plusieurs bubble_tea
+  collection.hasMany(bubble_tea, { foreignKey: 'collection_id' });
 
   return {
     bar,
