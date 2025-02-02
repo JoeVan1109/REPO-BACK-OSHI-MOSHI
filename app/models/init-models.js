@@ -1,5 +1,6 @@
-import { DataTypes } from 'sequelize';
 import { sequelize } from '../database.js';
+
+// Import the models
 import Bar from './bar.js';
 import Tea from './tea.js';
 import Milk from './milk.js';
@@ -12,47 +13,36 @@ import BubbleTeaTea from './bubble_tea_tea.js';
 import BubbleTeaTopping from './bubble_tea_topping.js';
 import CollectionBubbleTea from './collection_bubble_tea.js';
 
-function initModels() {
-  const bar = Bar(sequelize, DataTypes);
-  const bubble_tea = BubbleTea(sequelize, DataTypes);
-  const bubble_tea_pearl = BubbleTeaPearl(sequelize, DataTypes);
-  const bubble_tea_tea = BubbleTeaTea(sequelize, DataTypes);
-  const bubble_tea_topping = BubbleTeaTopping(sequelize, DataTypes);
-  const collection = Collection(sequelize, DataTypes);
-  const collection_bubble_tea = CollectionBubbleTea(sequelize, DataTypes);
-  const milk = Milk(sequelize, DataTypes);
-  const pearl = Pearl(sequelize, DataTypes);
-  const tea = Tea(sequelize, DataTypes);
-  const topping = Topping(sequelize, DataTypes);
+// Define relationships between the models
 
-  bubble_tea.belongsToMany(tea, { through: bubble_tea_tea });
-  tea.belongsToMany(bubble_tea, { through: bubble_tea_tea });
+// Relation bubble_tea <--> tea (many-to-many)
+BubbleTea.belongsToMany(Tea, { through: BubbleTeaTea });
+Tea.belongsToMany(BubbleTea, { through: BubbleTeaTea });
 
-  bubble_tea.belongsToMany(pearl, { through: bubble_tea_pearl });
-  pearl.belongsToMany(bubble_tea, { through: bubble_tea_pearl });
+// Relation bubble_tea <--> pearl (many-to-many)
+BubbleTea.belongsToMany(Pearl, { through: BubbleTeaPearl });
+Pearl.belongsToMany(BubbleTea, { through: BubbleTeaPearl });
 
-  bubble_tea.belongsToMany(topping, { through: bubble_tea_topping });
-  topping.belongsToMany(bubble_tea, { through: bubble_tea_topping });
+// Relation bubble_tea <--> topping (many-to-many)
+BubbleTea.belongsToMany(Topping, { through: BubbleTeaTopping });
+Topping.belongsToMany(BubbleTea, { through: BubbleTeaTopping });
 
-  // Un bubble_tea n'a qu'une seule collection
-  bubble_tea.belongsTo(collection, { foreignKey: 'collection_id' });
-  // Une collection peut avoir plusieurs bubble_tea
-  collection.hasMany(bubble_tea, { foreignKey: 'collection_id' });
+// Relation bubble_tea <--> collection (one-to-many)
+BubbleTea.belongsTo(Collection, { foreignKey: 'collection_id' });
+Collection.hasMany(BubbleTea, { foreignKey: 'collection_id' });
 
-  return {
-    bar,
-    bubble_tea,
-    bubble_tea_pearl,
-    bubble_tea_tea,
-    bubble_tea_topping,
-    collection,
-    collection_bubble_tea,
-    milk,
-    pearl,
-    tea,
-    topping,
-  };
-}
-
-export default initModels;
-export { initModels };
+// Export the models and the sequelize instance
+export {
+  Bar,
+  Tea,
+  Milk,
+  Topping,
+  Pearl,
+  Collection,
+  BubbleTea,
+  BubbleTeaPearl,
+  BubbleTeaTea,
+  BubbleTeaTopping,
+  CollectionBubbleTea,
+  sequelize,
+};
