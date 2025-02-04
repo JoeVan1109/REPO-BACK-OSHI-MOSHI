@@ -1,7 +1,8 @@
 import { Router } from 'express';
+import barsRouter from './bars.js';
 
-import { router as barsRouter } from './bars.js';
-
-export const router = Router();
+const router = Router();
 
 router.use('/bars', barsRouter);
+
+export default router;

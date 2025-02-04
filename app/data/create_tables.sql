@@ -14,9 +14,10 @@ CREATE TABLE "bar" (
     "image3" text,
     "image4" text,
     "image5" text,
-    "created_at" timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" timestamptz
+    "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" timestamp
 );
+
 
 -- Création des tables de base sans dépendances
 CREATE TABLE "tea" (
