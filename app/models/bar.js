@@ -47,6 +47,9 @@ const Bar = sequelize.define('bar', {
   tableName: 'bar',
   schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "bar_name_key",

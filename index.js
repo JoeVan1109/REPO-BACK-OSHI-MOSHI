@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import { createServer } from 'node:http';
-import { app } from './app/app.js';
+import app from './app/app.js';
 
-const PORT = process.env.PORT; // Get the port from environment variables
+const PORT = process.env.PORT || 3456;
 
 // Create an HTTP server using the Express app
 const server = createServer(app);
