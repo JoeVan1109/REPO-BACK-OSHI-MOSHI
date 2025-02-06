@@ -1,5 +1,8 @@
 BEGIN;
 
+TRUNCATE TABLE "collection_bubble_tea", "bubble_tea_tea", "bubble_tea_pearl", "bubble_tea_topping", "bubble_tea", "tea", "milk", "topping", "pearl", "collection", "bar" RESTART IDENTITY CASCADE;
+
+
 -- Insertion des données dans la table "bar"
 INSERT INTO "bar" ("name", "adresse", "horaire", "image1", "image2", "image3", "image4", "image5", "updated_at")
 VALUES 
@@ -100,24 +103,24 @@ VALUES
 ('Collection California Dream', NULL, CURRENT_TIMESTAMP, NULL);
 
 -- Insertion des données dans la table "bubble_tea"
-INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "icone", "milk_name", "created_at", "updated_at")
+INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "color", "icone", "milk_name", "created_at", "updated_at")
 VALUES
-('Quartz Rose', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Améthyste', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Bloody Mary', 5.90, 6.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Licorne', NULL, 7.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Sirène', NULL, 7.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Zeus', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Athéna', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Poséidon', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Arès', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Hadès', NULL, 8.50, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Akatsuki', 7.90, 8.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Crème Brûlée', 7.50, 8.50, NULL, NULL, 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
-('Tiramisu', 7.50, 8.50, NULL, NULL,  'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
-('Mojito Citron', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Fraise', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Passion', 6.90, 7.90, NULL, NULL, NULL, CURRENT_TIMESTAMP, NULL);
+('Quartz Rose', 5.90, 6.90, NULL, '#FB509A', 'florale-quartz.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Améthyste', 5.90, 6.90, NULL, '#893A9E', 'florale-amethyst.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Bloody Mary', 5.90, 6.90, NULL, '#AD4546', 'florale-bloody-mary.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Licorne', NULL, 7.50, NULL, '#C56798', 'magique-licorne.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Sirène', NULL, 7.50, NULL, '#9B87CA', 'magique-sirene.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Zeus', NULL, 8.50, NULL, '#EE933A', 'olympe-zeus.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Athéna', NULL, 8.50, NULL, '#DD5A3A', 'olympe-athena.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Poséidon', NULL, 8.50, NULL, '#41D6F2', 'olympe-poseidon.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Arès', NULL, 8.50, NULL, '#FA614A', 'olympe-ares', NULL, CURRENT_TIMESTAMP, NULL),
+('Hadès', NULL, 8.50, NULL, '#8B5440', 'olympe-hades.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Akatsuki', 7.90, 8.90, NULL, '#BB2320', 'akatsuki.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
+('Mojito Citron', 6.90, 7.90, NULL, '#FCC737', 'mojito-citron.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Fraise', 6.90, 7.90, NULL, '#E73879', 'mojito-fraise.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Passion', 6.90, 7.90, NULL, '#F26B0F', 'mojito-passion.png', NULL, CURRENT_TIMESTAMP, NULL);
 
 
 
