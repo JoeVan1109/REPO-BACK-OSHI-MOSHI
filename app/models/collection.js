@@ -18,6 +18,14 @@ const Collection = sequelize.define('collection', {
     type: DataTypes.TEXT,
     allowNull: true
   },
+  prixL: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  prixXL: {
+    type: DataTypes.INTEGER,
+    allowNull: true
+  },
   bubble_tea_id: {
     type: DataTypes.INTEGER,
     allowNull: true,
