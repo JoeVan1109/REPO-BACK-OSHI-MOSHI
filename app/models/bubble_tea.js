@@ -14,14 +14,6 @@ const BubbleTea = sequelize.define('bubble_tea', {
     allowNull: false,
     unique: "bubble_tea_name_key"
   },
-  prixL: {
-    type: DataTypes.INTEGER,
-    allowNull: true
-  },
-  prixXL: {
-    type: DataTypes.INTEGER,
-    allowNull: true
-  },
   image: {
     type: DataTypes.TEXT,
     allowNull: true

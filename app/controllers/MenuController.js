@@ -18,6 +18,9 @@ export const renderPageMenu = async (req, res) => {
 
                 ['image_collection', 'image_collection_url'],
 
+                'prixL',
+                'prixXL',
+
                 ['created_at', 'createdAt'],
                 ['updated_at', 'updatedAt']
             ],
@@ -28,15 +31,13 @@ export const renderPageMenu = async (req, res) => {
                     attributes: [
                         'id',
                         'name',
-                        'prixL',
-                        'prixXL',
                         'image',
                         'color',
                         'icone',
                         'milk_name',
 
                         ['icone', 'icone_url'],
-                        
+
                         ['created_at', 'createdAt'],
                         ['updated_at', 'updatedAt']
                     ],

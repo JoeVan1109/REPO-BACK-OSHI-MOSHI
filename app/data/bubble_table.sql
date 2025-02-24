@@ -94,36 +94,36 @@ VALUES
 
 
 -- Inser tion collection
-INSERT INTO "collection" ("name", "image_collection", "created_at", "updated_at")
+INSERT INTO "collection" ("name", "image_collection", "prixL", "prixXL", "created_at", "updated_at")
 VALUES
-('Collection Florale', 'collection-florale.png', CURRENT_TIMESTAMP, NULL),
-('Collection Magique', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection Olympe', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection Akatsuki', 'collection-akatsuki', CURRENT_TIMESTAMP, NULL),
-('Collection Sweet''N Chill', 'collection-sweet-chill.png', CURRENT_TIMESTAMP, NULL),
-('Collection California Dream', 'collection-california-dream.png', CURRENT_TIMESTAMP, NULL),
-('Collection Classique', 'collection-classique.png', CURRENT_TIMESTAMP, NULL),
-('Collection Lactée', 'collection-lactee.png', CURRENT_TIMESTAMP, NULL);
+('Collection Florale', 'collection-florale.png', 5.90, 6.90, CURRENT_TIMESTAMP, NULL),
+('Collection Magique', NULL, 7.50, NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Olympe', NULL,  8.50, NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Akatsuki', 'collection-akatsuki', 7.90, 8.90, CURRENT_TIMESTAMP, NULL),
+('Collection Sweet''N Chill', 'collection-sweet-chill.png', 7.50, 8.50, CURRENT_TIMESTAMP, NULL),
+('Collection California Dream', 'collection-california-dream.png', 6.90, 7.90, CURRENT_TIMESTAMP, NULL),
+('Collection Classique', 'collection-classique.png', 5, 6, CURRENT_TIMESTAMP, NULL),
+('Collection Lactée', 'collection-lactee.png', 5, 6, CURRENT_TIMESTAMP, NULL);
 
 -- Insertion des données dans la table "bubble_tea"
-INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "color", "icone", "milk_name", "created_at", "updated_at")
+INSERT INTO "bubble_tea" ("name", "image", "color", "icone", "milk_name", "created_at", "updated_at")
 VALUES
-('Quartz Rose', 5.90, 6.90, NULL, '#FB509A', 'florale-quartz.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Améthyste', 5.90, 6.90, NULL, '#893A9E', 'florale-amethyst.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Bloody Mary', 5.90, 6.90, NULL, '#AD4546', 'florale-bloody-mary.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Licorne', NULL, 7.50, NULL, '#C56798', 'magique-licorne.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Tea Sirène', NULL, 7.50, NULL, '#9B87CA', 'magique-sirene.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Zeus', NULL, 8.50, NULL, '#EE933A', 'olympe-zeus.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Athéna', NULL, 8.50, NULL, '#DD5A3A', 'olympe-athena.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Poséidon', NULL, 8.50, NULL, '#41D6F2', 'olympe-poseidon.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Arès', NULL, 8.50, NULL, '#FA614A', 'olympe-ares.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Hadès', NULL, 8.50, NULL, '#8B5440', 'olympe-hades.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Akatsuki', 7.90, 8.90, NULL, '#BB2320', 'akatsuki.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'sweet-creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
-('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'sweet-tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
-('Mojito Citron', 6.90, 7.90, NULL, '#FCC737', 'mojito-citron.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Fraise', 6.90, 7.90, NULL, '#E73879', 'mojito-fraise.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Mojito Passion', 6.90, 7.90, NULL, '#F26B0F', 'mojito-passion.png', NULL, CURRENT_TIMESTAMP, NULL);
+('Quartz Rose', NULL, '#FB509A', 'florale-quartz.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Améthyste', NULL, '#893A9E', 'florale-amethyst.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Bloody Mary', NULL, '#AD4546', 'florale-bloody-mary.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Licorne', NULL, '#C56798', 'magique-licorne.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Tea Sirène', NULL,  '#9B87CA', 'magique-sirene.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Zeus', NULL, '#EE933A', 'olympe-zeus.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Athéna', NULL, '#DD5A3A', 'olympe-athena.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Poséidon', NULL, '#41D6F2', 'olympe-poseidon.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Arès', NULL, '#FA614A', 'olympe-ares.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Hadès', NULL, '#8B5440', 'olympe-hades.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Akatsuki', NULL, '#BB2320', 'akatsuki.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', NULL, '#B89663', 'sweet-creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Tiramisu', NULL, '#A06012', 'sweet-tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
+('Mojito Citron', NULL, '#FCC737', 'mojito-citron.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Fraise', NULL, '#E73879', 'mojito-fraise.png', NULL, CURRENT_TIMESTAMP, NULL),
+('Mojito Passion', NULL, '#F26B0F', 'mojito-passion.png', NULL, CURRENT_TIMESTAMP, NULL);
 
 
 
