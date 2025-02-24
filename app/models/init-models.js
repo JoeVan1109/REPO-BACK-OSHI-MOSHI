@@ -13,25 +13,68 @@ import BubbleTeaTea from './bubble_tea_tea.js';
 import BubbleTeaTopping from './bubble_tea_topping.js';
 import CollectionBubbleTea from './collection_bubble_tea.js';
 
-// Define relationships between the models
 
-// Relation bubble_tea <--> tea (many-to-many)
-BubbleTea.belongsToMany(Tea, { through: BubbleTeaTea });
-Tea.belongsToMany(BubbleTea, { through: BubbleTeaTea });
 
-// Relation bubble_tea <--> pearl (many-to-many)
-BubbleTea.belongsToMany(Pearl, { through: BubbleTeaPearl });
-Pearl.belongsToMany(BubbleTea, { through: BubbleTeaPearl });
 
-// Relation bubble_tea <--> topping (many-to-many)
-BubbleTea.belongsToMany(Topping, { through: BubbleTeaTopping });
-Topping.belongsToMany(BubbleTea, { through: BubbleTeaTopping });
+BubbleTea.belongsToMany(Tea, {
+  through: BubbleTeaTea,
+  foreignKey: 'bubble_tea_id',  // Clé étrangère dans la table de jonction qui référence BubbleTea
+  otherKey: 'tea_id',           // Clé étrangère dans la table de jonction qui référence Tea
+  as: 'teas'
+});
 
-// Relation bubble_tea <--> collection (one-to-many)
-BubbleTea.belongsTo(Collection, { foreignKey: 'collection_id' });
-Collection.hasMany(BubbleTea, { foreignKey: 'collection_id' });
+Tea.belongsToMany(BubbleTea, {
+  through: BubbleTeaTea,
+  foreignKey: 'tea_id',           // Clé étrangère dans la table de jonction qui référence Tea
+  otherKey: 'bubble_tea_id',  // Clé étrangère dans la table de jonction qui référence BubbleTea
+  as: 'bubble_teas'
+});
 
-// Export the models and the sequelize instance
+BubbleTea.belongsToMany(Pearl, {
+  through: BubbleTeaPearl,
+  foreignKey: 'bubble_tea_id',
+  otherKey: 'pearl_id',
+  as: 'pearls'
+});
+
+Pearl.belongsToMany(BubbleTea, {
+  through: BubbleTeaPearl,
+  foreignKey: 'pearl_id',
+  otherKey: 'bubble_tea_id',
+  as: 'bubble_teas'
+});
+
+BubbleTea.belongsToMany(Topping, {
+  through: BubbleTeaTopping,
+  foreignKey: 'bubble_tea_id',
+  otherKey: 'topping_id',
+  as: 'toppings'
+});
+
+Topping.belongsToMany(BubbleTea, {
+  through: BubbleTeaTopping,
+  foreignKey: 'topping_id',
+  otherKey: 'bubble_tea_id',
+  as: 'bubble_teas'
+});
+
+
+
+BubbleTea.belongsToMany(Collection, { 
+  through: CollectionBubbleTea,
+  foreignKey: 'bubble_tea_id',
+  otherKey: 'collection_id',
+  as: 'collections'
+});
+Collection.belongsToMany(BubbleTea, { 
+  through: CollectionBubbleTea,
+  foreignKey: 'collection_id',
+  otherKey: 'bubble_tea_id',
+  as: 'bubble_teas'
+});
+
+
+
 export {
   Bar,
   Tea,
