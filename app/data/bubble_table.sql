@@ -2,6 +2,7 @@ BEGIN;
 
 TRUNCATE TABLE "collection_bubble_tea", "bubble_tea_tea", "bubble_tea_pearl", "bubble_tea_topping", "bubble_tea", "tea", "milk", "topping", "pearl", "collection", "bar" RESTART IDENTITY CASCADE;
 
+SET client_encoding TO 'UTF8';
 
 -- Insertion des données dans la table "bar"
 INSERT INTO "bar" ("name", "adresse", "horaire", "image1", "image2", "image3", "image4", "image5", "updated_at")
@@ -115,11 +116,11 @@ VALUES
 ('Zeus', NULL, 8.50, NULL, '#EE933A', 'olympe-zeus.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Athéna', NULL, 8.50, NULL, '#DD5A3A', 'olympe-athena.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Poséidon', NULL, 8.50, NULL, '#41D6F2', 'olympe-poseidon.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Arès', NULL, 8.50, NULL, '#FA614A', 'olympe-ares', NULL, CURRENT_TIMESTAMP, NULL),
+('Arès', NULL, 8.50, NULL, '#FA614A', 'olympe-ares.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Hadès', NULL, 8.50, NULL, '#8B5440', 'olympe-hades.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Akatsuki', 7.90, 8.90, NULL, '#BB2320', 'akatsuki.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
-('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'sweet-creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'sweet-tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
 ('Mojito Citron', 6.90, 7.90, NULL, '#FCC737', 'mojito-citron.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Mojito Fraise', 6.90, 7.90, NULL, '#E73879', 'mojito-fraise.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Mojito Passion', 6.90, 7.90, NULL, '#F26B0F', 'mojito-passion.png', NULL, CURRENT_TIMESTAMP, NULL);
