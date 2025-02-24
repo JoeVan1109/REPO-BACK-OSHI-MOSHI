@@ -10,11 +10,7 @@ const barRouter = Router();
 barRouter.get('/', async (req, res) => {
     try {
         const bars = await Bar.findAll({
-            attributes: { 
-                include: [
-                    [sequelize.literal(`CONCAT('${process.env.BASE_URL}/api/images/bar/', name)`), 'imageUrl']
-                ]
-            }
+            
         });
         res.json(bars);
     } catch (error) {

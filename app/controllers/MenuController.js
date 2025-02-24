@@ -1,4 +1,5 @@
 import { Collection, BubbleTea, Tea, Topping, Pearl } from '../models/init-models.js';
+import { sequelize } from '../database.js';
 
 
 export const renderPageMenu = async (req, res) => {
@@ -14,6 +15,9 @@ export const renderPageMenu = async (req, res) => {
                 'id',
                 'name',
                 'image_collection',
+
+                ['image_collection', 'image_collection_url'],
+
                 ['created_at', 'createdAt'],
                 ['updated_at', 'updatedAt']
             ],
@@ -30,6 +34,9 @@ export const renderPageMenu = async (req, res) => {
                         'color',
                         'icone',
                         'milk_name',
+
+                        ['icone', 'icone_url'],
+                        
                         ['created_at', 'createdAt'],
                         ['updated_at', 'updatedAt']
                     ],

@@ -6,8 +6,7 @@ import indexRouter from './routers/index.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// In ES Modules, `__dirname` is not available like in CommonJS.
-// We need to reconstruct it using `fileURLToPath` and `dirname`.
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -15,9 +14,10 @@ dotenv.config();
 
 const app = express();
 
-// Serve static files from the "bar" directory inside "assets"
-// `path.join(__dirname, '..', 'app', 'assets', 'bar')` ensures correct path resolution
+
 app.use('/api/assets/bar', express.static(path.join(__dirname, '..', 'app', 'assets', 'bar')));
+app.use('/api/assets/collection', express.static(path.join(__dirname, '..', 'app', 'assets', 'collection')));
+app.use('/api/assets/icones', express.static(path.join(__dirname, '..', 'app', 'assets', 'icones')));
 
 // CORS Middleware: Allows cross-origin requests
 app.use((req, res, next) => {
