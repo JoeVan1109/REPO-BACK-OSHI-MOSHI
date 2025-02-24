@@ -119,8 +119,8 @@ VALUES
 ('Arès', NULL, 8.50, NULL, '#FA614A', 'olympe-ares.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Hadès', NULL, 8.50, NULL, '#8B5440', 'olympe-hades.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Akatsuki', 7.90, 8.90, NULL, '#BB2320', 'akatsuki.png', NULL, CURRENT_TIMESTAMP, NULL),
-('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
-('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
+('Crème Brûlée', 7.50, 8.50, NULL, '#B89663', 'sweet-creme-brulee.png', 'Lait saveur crème brûlée', CURRENT_TIMESTAMP, NULL),
+('Tiramisu', 7.50, 8.50, NULL, '#A06012', 'sweet-tiramisu.png', 'Lait au chocolat saveur tiramisu', CURRENT_TIMESTAMP, NULL),
 ('Mojito Citron', 6.90, 7.90, NULL, '#FCC737', 'mojito-citron.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Mojito Fraise', 6.90, 7.90, NULL, '#E73879', 'mojito-fraise.png', NULL, CURRENT_TIMESTAMP, NULL),
 ('Mojito Passion', 6.90, 7.90, NULL, '#F26B0F', 'mojito-passion.png', NULL, CURRENT_TIMESTAMP, NULL);
