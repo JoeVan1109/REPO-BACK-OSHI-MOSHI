@@ -95,12 +95,14 @@ VALUES
 -- Inser tion collection
 INSERT INTO "collection" ("name", "image_collection", "created_at", "updated_at")
 VALUES
-('Collection Florale', NULL, CURRENT_TIMESTAMP, NULL),
+('Collection Florale', 'collection-florale.png', CURRENT_TIMESTAMP, NULL),
 ('Collection Magique', NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection Olympe', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection Akatsuki', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection Sweet''N Chill', NULL, CURRENT_TIMESTAMP, NULL),
-('Collection California Dream', NULL, CURRENT_TIMESTAMP, NULL);
+('Collection Akatsuki', 'collection-akatsuki', CURRENT_TIMESTAMP, NULL),
+('Collection Sweet''N Chill', 'collection-sweet-chill.png', CURRENT_TIMESTAMP, NULL),
+('Collection California Dream', 'collection-california-dream.png', CURRENT_TIMESTAMP, NULL),
+('Collection Classique', 'collection-classique.png', CURRENT_TIMESTAMP, NULL),
+('Collection Lactée', 'collection-lactee.png', CURRENT_TIMESTAMP, NULL);
 
 -- Insertion des données dans la table "bubble_tea"
 INSERT INTO "bubble_tea" ("name", "prixL", "prixXL", "image", "color", "icone", "milk_name", "created_at", "updated_at")
@@ -167,6 +169,8 @@ VALUES
 ((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "collection" WHERE name = 'Collection California Dream')),
 
 ((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "collection" WHERE name = 'Collection California Dream'));
+
+
 
 -- Insertion des relations tea
 INSERT INTO "bubble_tea_tea" ("bubble_tea_id", "tea_id")
