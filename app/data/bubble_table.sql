@@ -99,7 +99,7 @@ VALUES
 ('Collection Florale', 'collection-florale.png', 5.90, 6.90, CURRENT_TIMESTAMP, NULL),
 ('Collection Magique', NULL, 7.50, NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection Olympe', NULL,  8.50, NULL, CURRENT_TIMESTAMP, NULL),
-('Collection Akatsuki', 'collection-akatsuki', 7.90, 8.90, CURRENT_TIMESTAMP, NULL),
+('Collection Akatsuki', NULL, 7.90, 8.90, CURRENT_TIMESTAMP, NULL),
 ('Collection Sweet''N Chill', 'collection-sweet-chill.png', 7.50, 8.50, CURRENT_TIMESTAMP, NULL),
 ('Collection California Dream', 'collection-california-dream.png', 6.90, 7.90, CURRENT_TIMESTAMP, NULL),
 ('Collection Classique', 'collection-classique.png', 5, 6, CURRENT_TIMESTAMP, NULL),

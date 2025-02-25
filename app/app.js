@@ -19,14 +19,15 @@ app.use('/api/assets/bar', express.static(path.join(__dirname, '..', 'app', 'ass
 app.use('/api/assets/collection', express.static(path.join(__dirname, '..', 'app', 'assets', 'collection')));
 app.use('/api/assets/icones', express.static(path.join(__dirname, '..', 'app', 'assets', 'icones')));
 
-// CORS Middleware: Allows cross-origin requests
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    next();
-});
+const corsOptions = {
+    origin: 'http://localhost:5173', // Autoriser uniquement ce domaine
+    methods: 'GET, POST',           // Autoriser les méthodes GET et POST
+    allowedHeaders: 'Content-Type', // Autoriser l'en-tête Content-Type
+    credentials: true               // Si vous gérez des cookies ou sessions, laissez ceci
+};
+
+app.use(cors(corsOptions));
+
 
 // Serve static files from the "public" directory
 app.use('/public', express.static(path.join(__dirname, 'public')));
