@@ -5,11 +5,11 @@ TRUNCATE TABLE "collection_bubble_tea", "bubble_tea_tea", "bubble_tea_pearl", "b
 SET client_encoding TO 'UTF8';
 
 -- Insertion des données dans la table "bar"
-INSERT INTO "bar" ("name", "adresse", "horaire", "image1", "image2", "image3", "image4", "image5", "updated_at")
+INSERT INTO "bar" ("name", "adresse", "horaire", "image1", "image2", "image3", "image4", "image5", "url_map")
 VALUES 
-('Oshi-Moshi Plumereau', '3 rue du Change, 37000 TOURS', 'Lun au Dim : 14-21h', 'oshi-moshi-plume.png', NULL, NULL, NULL, NULL, NULL),
-('Oshi-Moshi Gare', '25 rue Blazise Pascal, 37000 TOURS', 'Lun au Dim : 13-20h', 'oshi-moshi-gare.png', NULL, NULL, NULL, NULL, NULL),
-('Oshi-Moshi Angers', '3 rue des Lices, 49100 ANGERS', 'Lun au Sam : 12-19h Dim: 13h-19h', 'oshi-moshi-angers.png', NULL, NULL, NULL, NULL, NULL);
+('Oshi-Moshi Plumereau', '3 rue du Change, 37000 TOURS', 'Lun au Dim : 14-21h', 'oshi-moshi-plume.webp', NULL, NULL, NULL, NULL, 'https://www.google.fr/maps/place/Oshi+Moshi+Plumereau+-+Bubble+Tea+Bar+Tours/@47.3941051,0.6792808,17z/data=!3m1!4b1!4m6!3m5!1s0x47fcd5e76eb0fbf1:0x49b3dd10ea394bac!8m2!3d47.3941015!4d0.6818557!16s%2Fg%2F11fp458p2s?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D'),
+('Oshi-Moshi Gare', '25 rue Blazise Pascal, 37000 TOURS', 'Lun au Dim : 13-20h', 'oshi-moshi-gare.webp', NULL, NULL, NULL, NULL, 'https://www.google.fr/maps/place/Oshi+Moshi+Gare+-+Bubble+Tea+Bar+Tours/@47.388015,0.6904578,17z/data=!3m1!4b1!4m6!3m5!1s0x47fcd5ca82d62fbf:0x5bc7741283a41c94!8m2!3d47.3880114!4d0.6930327!16s%2Fg%2F12hshxrp2?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D'),
+('Oshi-Moshi Angers', '3 rue des Lices, 49100 ANGERS', 'Lun au Sam : 12-19h Dim: 13h-19h', 'oshi-moshi-angers.webp', NULL, NULL, NULL, NULL, 'https://www.google.fr/maps/place/Oshi+Moshi+Angers+-+Bubble+tea+bar+Angers/@47.4689302,-0.5558849,17z/data=!3m1!4b1!4m6!3m5!1s0x480879c28cfdeed5:0xdbbce09cf6de4dee!8m2!3d47.4689266!4d-0.55331!16s%2Fg%2F11sw48n8xv?entry=ttu&g_ep=EgoyMDI1MDIyNS4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D');
 
 
 -- Insertion des données dans la table "tea"
@@ -57,15 +57,15 @@ VALUES
 -- Insertion des données dans la table "pearl"
 INSERT INTO "pearl" ("name", "created_at", "updated_at")
 VALUES
-('Pêche', CURRENT_TIMESTAMP, NULL),
-('Myrtille', CURRENT_TIMESTAMP, NULL),
-('Fraise', CURRENT_TIMESTAMP, NULL),
-('Passion', CURRENT_TIMESTAMP, NULL),
-('Pomme verte', CURRENT_TIMESTAMP, NULL),
-('Tapioca', CURRENT_TIMESTAMP, NULL),
-('Citron vert', CURRENT_TIMESTAMP, NULL),
-('Mangue', CURRENT_TIMESTAMP, NULL),
-('Ananas', CURRENT_TIMESTAMP, NULL);
+('Perle Pêche', CURRENT_TIMESTAMP, NULL),
+('Perle Myrtille', CURRENT_TIMESTAMP, NULL),
+('Perle Fraise', CURRENT_TIMESTAMP, NULL),
+('Perle Passion', CURRENT_TIMESTAMP, NULL),
+('Perle Pomme verte', CURRENT_TIMESTAMP, NULL),
+('Perle Tapioca', CURRENT_TIMESTAMP, NULL),
+('Perle Citron vert', CURRENT_TIMESTAMP, NULL),
+('Perle Mangue', CURRENT_TIMESTAMP, NULL),
+('Perle Ananas', CURRENT_TIMESTAMP, NULL);
 
 
 -- Insertion des données dans la table "topping"
@@ -101,9 +101,7 @@ VALUES
 ('Collection Olympe', NULL,  8.50, NULL, CURRENT_TIMESTAMP, NULL),
 ('Collection Akatsuki', NULL, 7.90, 8.90, CURRENT_TIMESTAMP, NULL),
 ('Collection Sweet''N Chill', 'collection-sweet-chill.png', 7.50, 8.50, CURRENT_TIMESTAMP, NULL),
-('Collection California Dream', 'collection-california-dream.png', 6.90, 7.90, CURRENT_TIMESTAMP, NULL),
-('Collection Classique', 'collection-classique.png', 5, 6, CURRENT_TIMESTAMP, NULL),
-('Collection Lactée', 'collection-lactee.png', 5, 6, CURRENT_TIMESTAMP, NULL);
+('Collection California Dream', 'collection-california-dream.png', 6.90, 7.90, CURRENT_TIMESTAMP, NULL);
 
 -- Insertion des données dans la table "bubble_tea"
 INSERT INTO "bubble_tea" ("name", "image", "color", "icone", "milk_name", "created_at", "updated_at")
@@ -268,32 +266,32 @@ INSERT INTO "bubble_tea_topping" ("bubble_tea_id", "topping_id") VALUES
 INSERT INTO "bubble_tea_pearl" ("bubble_tea_id", "pearl_id") VALUES
 
 -- Collection florale
-((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "pearl" WHERE name = 'Pêche')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "pearl" WHERE name = 'Myrtille')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Bloody Mary'), (SELECT id FROM "pearl" WHERE name = 'Pêche')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Quartz Rose'), (SELECT id FROM "pearl" WHERE name = 'Perle Pêche')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Améthyste'), (SELECT id FROM "pearl" WHERE name = 'Perle Myrtille')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Bloody Mary'), (SELECT id FROM "pearl" WHERE name = 'Perle Pêche')),
 
 -- Collection magique
-((SELECT id FROM "bubble_tea" WHERE name = 'Tea Licorne'), (SELECT id FROM "pearl" WHERE name = 'Fraise')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "pearl" WHERE name = 'Passion')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Tea Licorne'), (SELECT id FROM "pearl" WHERE name = 'Perle Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Tea Sirène'), (SELECT id FROM "pearl" WHERE name = 'Perle Passion')),
 
 -- Collection Olympe
-((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "pearl" WHERE name = 'Passion')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Athéna'), (SELECT id FROM "pearl" WHERE name = 'Passion')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "pearl" WHERE name = 'Pomme verte')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "pearl" WHERE name = 'Pomme verte')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "pearl" WHERE name = 'Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Zeus'), (SELECT id FROM "pearl" WHERE name = 'Perle Passion')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Athéna'), (SELECT id FROM "pearl" WHERE name = 'Perle Passion')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Poséidon'), (SELECT id FROM "pearl" WHERE name = 'Perle Pomme verte')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Arès'), (SELECT id FROM "pearl" WHERE name = 'Perle Pomme verte')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Hadès'), (SELECT id FROM "pearl" WHERE name = 'Perle Fraise')),
 
 -- Collection Akatsuki
-((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "pearl" WHERE name = 'Fraise')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "pearl" WHERE name = 'Tapioca')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "pearl" WHERE name = 'Perle Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Akatsuki'), (SELECT id FROM "pearl" WHERE name = 'Perle Tapioca')),
 
 -- Collection Sweet'N Chill
-((SELECT id FROM "bubble_tea" WHERE name = 'Crème Brûlée'), (SELECT id FROM "pearl" WHERE name = 'Tapioca')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "pearl" WHERE name = 'Tapioca')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Crème Brûlée'), (SELECT id FROM "pearl" WHERE name = 'Perle Tapioca')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Tiramisu'), (SELECT id FROM "pearl" WHERE name = 'Perle Tapioca')),
 
 -- Collection California Dream
-((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "pearl" WHERE name = 'Citron vert')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "pearl" WHERE name = 'Fraise')),
-((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "pearl" WHERE name = 'Passion'));
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Citron'), (SELECT id FROM "pearl" WHERE name = 'Perle Citron vert')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Fraise'), (SELECT id FROM "pearl" WHERE name = 'Perle Fraise')),
+((SELECT id FROM "bubble_tea" WHERE name = 'Mojito Passion'), (SELECT id FROM "pearl" WHERE name = 'Perle Passion'));
 
 COMMIT;

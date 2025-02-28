@@ -41,7 +41,11 @@ const Bar = sequelize.define('bar', {
   image5: {
     type: DataTypes.TEXT,
     allowNull: true
-  }
+  },
+  url_map: {
+    type: DataTypes.TEXT,
+    allowNull: true
+  },
 }, {
   sequelize,
   tableName: 'bar',

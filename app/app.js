@@ -20,10 +20,10 @@ app.use('/api/assets/collection', express.static(path.join(__dirname, '..', 'app
 app.use('/api/assets/icones', express.static(path.join(__dirname, '..', 'app', 'assets', 'icones')));
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // Autoriser uniquement ce domaine
-    methods: 'GET, POST',           // Autoriser les méthodes GET et POST
-    allowedHeaders: 'Content-Type', // Autoriser l'en-tête Content-Type
-    credentials: true               // Si vous gérez des cookies ou sessions, laissez ceci
+    origin: 'http://localhost:5173',
+    methods: 'GET, POST',           
+    allowedHeaders: 'Content-Type', 
+    credentials: true               
 };
 
 app.use(cors(corsOptions));

@@ -14,6 +14,7 @@ CREATE TABLE "bar" (
     "image3" text,
     "image4" text,
     "image5" text,
+    "url_map" text,
     "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" timestamp
 );

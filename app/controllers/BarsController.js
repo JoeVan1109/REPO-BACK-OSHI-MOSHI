@@ -13,6 +13,7 @@ export const getAllBars = async (req, res) => {
                 'image3', 
                 'image4', 
                 'image5',
+                'url_map',
                 ['created_at', 'createdAt'], 
                 ['updated_at', 'updatedAt']
             ]
