@@ -19,4 +19,6 @@ barRouter.get('/', async (req, res) => {
     }
 });
 
+barRouter.get('/bars', getAllBars);
+
 export default barRouter;

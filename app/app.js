@@ -20,7 +20,7 @@ app.use('/api/assets/collection', express.static(path.join(__dirname, '..', 'app
 app.use('/api/assets/icones', express.static(path.join(__dirname, '..', 'app', 'assets', 'icones')));
 
 const corsOptions = {
-    origin: 'http://localhost:4173',
+    origin: 'http://localhost:5173',
     methods: 'GET, POST',           
     allowedHeaders: 'Content-Type', 
     credentials: true               
