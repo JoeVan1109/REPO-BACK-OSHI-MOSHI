@@ -3,27 +3,26 @@ import { sequelize } from '../database.js';
 
 const BubbleTea = sequelize.define('bubble_tea', {
   id: {
-    autoIncrement: true,
-    autoIncrementIdentity: true,
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: "bubble_tea_name_key"
   },
   image: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: true
   },
   icone: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: true
   },
   milk_name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: true,
     references: {
       model: 'milk',
@@ -33,22 +32,20 @@ const BubbleTea = sequelize.define('bubble_tea', {
 }, {
   sequelize,
   tableName: 'bubble_tea',
-  schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "bubble_tea_name_key",
       unique: true,
-      fields: [
-        { name: "name" },
-      ]
+      fields: ["name"]
     },
     {
       name: "bubble_tea_pkey",
       unique: true,
-      fields: [
-        { name: "id" },
-      ]
+      fields: ["id"]
     },
   ]
 });

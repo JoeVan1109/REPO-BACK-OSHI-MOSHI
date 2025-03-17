@@ -10,29 +10,27 @@ const Tea = sequelize.define('tea', {
     primaryKey: true
   },
   name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: "tea_name_key"
   }
 }, {
   sequelize,
   tableName: 'tea',
-  schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "tea_name_key",
       unique: true,
-      fields: [
-        { name: "name" },
-      ]
+      fields: ["name"]
     },
     {
       name: "tea_pkey",
       unique: true,
-      fields: [
-        { name: "id" },
-      ]
+      fields: ["id"]
     },
   ]
 });

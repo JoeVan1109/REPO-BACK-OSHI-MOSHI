@@ -6,6 +6,7 @@ const BubbleTeaTopping = sequelize.define('bubble_tea_topping', {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
+    autoIncrement: false,
     references: {
       model: 'bubble_tea',
       key: 'id'
@@ -15,6 +16,7 @@ const BubbleTeaTopping = sequelize.define('bubble_tea_topping', {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
+    autoIncrement: false,
     references: {
       model: 'topping',
       key: 'id'
@@ -29,10 +31,7 @@ const BubbleTeaTopping = sequelize.define('bubble_tea_topping', {
     {
       name: "bubble_tea_topping_pkey",
       unique: true,
-      fields: [
-        { name: "bubble_tea_id" },
-        { name: "topping_id" },
-      ]
+      fields: ["bubble_tea_id", "topping_id"]
     },
   ]
 });

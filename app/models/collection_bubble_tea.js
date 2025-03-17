@@ -6,6 +6,7 @@ const CollectionBubbleTea = sequelize.define('collection_bubble_tea', {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
+    autoIncrement: false,
     references: {
       model: 'collection',
       key: 'id'
@@ -15,6 +16,7 @@ const CollectionBubbleTea = sequelize.define('collection_bubble_tea', {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
+    autoIncrement: false,
     references: {
       model: 'bubble_tea',
       key: 'id'
@@ -23,16 +25,12 @@ const CollectionBubbleTea = sequelize.define('collection_bubble_tea', {
 }, {
   sequelize,
   tableName: 'collection_bubble_tea',
-  schema: 'public',
   timestamps: false,
   indexes: [
     {
       name: "collection_bubble_tea_pkey",
       unique: true,
-      fields: [
-        { name: "collection_id" },
-        { name: "bubble_tea_id" },
-      ]
+      fields: ["collection_id", "bubble_tea_id"]
     },
   ]
 });

@@ -4,7 +4,7 @@ export const constructPage = async (req, res) => {
             message: "Welcome to Construct API"
         });
     } catch (error) {
-        console.error('Erreur SQL:', error.original.sql);
+        console.error('Erreur', error.message);
         res.status(500).send({
             message: "Error retrieving construct",
             error: error.message

@@ -3,36 +3,33 @@ import { sequelize } from '../database.js';
 
 const Pearl = sequelize.define('pearl', {
   id: {
-    autoIncrement: true,
-    autoIncrementIdentity: true,
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: "pearl_name_key"
   }
 }, {
   sequelize,
   tableName: 'pearl',
-  schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "pearl_name_key",
       unique: true,
-      fields: [
-        { name: "name" },
-      ]
+      fields: ["name"]
     },
     {
       name: "pearl_pkey",
       unique: true,
-      fields: [
-        { name: "id" },
-      ]
+      fields: ["id"]
     },
   ]
 });

@@ -10,29 +10,27 @@ const Topping = sequelize.define('topping', {
     primaryKey: true
   },
   name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: "topping_name_key"
   }
 }, {
   sequelize,
   tableName: 'topping',
-  schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "topping_name_key",
       unique: true,
-      fields: [
-        { name: "name" },
-      ]
+      fields: ["name"]
     },
     {
       name: "topping_pkey",
       unique: true,
-      fields: [
-        { name: "id" },
-      ]
+      fields: ["id"]
     },
   ]
 });

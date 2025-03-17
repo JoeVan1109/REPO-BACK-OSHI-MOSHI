@@ -16,13 +16,17 @@ export const getAllBars = async (req, res) => {
                 'url_map',
                 ['created_at', 'createdAt'], 
                 ['updated_at', 'updatedAt']
-            ]
+            ],
+            order: [['created_at', 'DESC']] // Tri des bars par date de création
         });
-        res.status(200).send(bars);
+
+        res.status(200).json(bars);
     } catch (error) {
-        console.error('Erreur SQL:', error.original.sql);
-        res.status(500).send({
-            message: "Error retrieving bars",
+        console.error('Erreur lors de la récupération des bars:', error.message);
+        
+        res.status(500).json({
+            message: "Une erreur est survenue lors de la récupération des bars",
+            sql: error.original?.sql || null, // Ajout conditionnel pour éviter les erreurs
             error: error.message
         });
     }

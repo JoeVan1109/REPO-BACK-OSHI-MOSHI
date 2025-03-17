@@ -3,26 +3,25 @@ import { sequelize } from '../database.js';
 
 const Collection = sequelize.define('collection', {
   id: {
-    autoIncrement: true,
-    autoIncrementIdentity: true,
     type: DataTypes.INTEGER,
+    autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
   name: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: false,
     unique: "collection_name_key"
   },
   image_collection: {
-    type: DataTypes.TEXT,
+    type: DataTypes.STRING(255),
     allowNull: true
   },
-  prixL: {
+  prix_l: {
     type: DataTypes.INTEGER,
     allowNull: true
   },
-  prixXL: {
+  prix_xl: {
     type: DataTypes.INTEGER,
     allowNull: true
   },
@@ -37,22 +36,20 @@ const Collection = sequelize.define('collection', {
 }, {
   sequelize,
   tableName: 'collection',
-  schema: 'public',
   timestamps: true,
+  underscored: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
   indexes: [
     {
       name: "collection_name_key",
       unique: true,
-      fields: [
-        { name: "name" },
-      ]
+      fields: ["name"]
     },
     {
       name: "collection_pkey",
       unique: true,
-      fields: [
-        { name: "id" },
-      ]
+      fields: ["id"]
     },
   ]
 });

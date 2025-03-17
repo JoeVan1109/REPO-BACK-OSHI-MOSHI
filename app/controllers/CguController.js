@@ -4,7 +4,8 @@ export const cguPage = async (req, res) => {
             message: "Welcome to CGU"
         });
     } catch (error) {
-        console.error('Erreur SQL:', error.original.sql);
+        console.error('Erreur', error.message);
+        
         res.status(500).send({
             message: "Error retrieving construct",
             error: error.message
