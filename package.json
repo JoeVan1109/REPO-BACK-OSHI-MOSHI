@@ -18,9 +18,8 @@
     "sequelize": "^6.37.5"
   },
   "scripts": {
-  "start": "node index.js",
-  "dev": "nodemon index.js",
-  "build": "echo 'Nothing to build'"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Your Name",
   "license": "MIT"
