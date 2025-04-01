@@ -20,11 +20,12 @@ app.use('/api/assets/collection', express.static(path.join(__dirname, '..', 'app
 app.use('/api/assets/icones', express.static(path.join(__dirname, '..', 'app', 'assets', 'icones')));
 
 const corsOptions = {
-    origin: 'http://localhost:5173', // mettre l'adresse du front
+    origin: 'https://oshimoshi.fr', // L'URL de ton front-end en ligne
     methods: 'GET, POST',           
     allowedHeaders: 'Content-Type', 
     credentials: true               
 };
+
 
 app.use(cors(corsOptions));
 
