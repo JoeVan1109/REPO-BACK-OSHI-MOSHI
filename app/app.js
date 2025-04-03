@@ -36,7 +36,7 @@ app.use(express.json());
 app.use('/api', indexRouter);
 
 // Serve the frontend from "dist"
-const distPath = path.join(__dirname, '..', 'front', 'dist');
+const distPath = path.join(__dirname, '..', 'frontend', 'dist');
 app.use(express.static(distPath));
 
 // Handle SPA routing (React/Vue/Angular with Router)
