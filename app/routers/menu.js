@@ -6,7 +6,7 @@ import { sequelize } from '../database.js';
 
 const menuRouter = Router();
 
-menuRouter.get('/', renderPageMenu);
-menuRouter.post('/:filter', categoryCollection)
+menuRouter.get('/api/', renderPageMenu);
+menuRouter.post('/api/:filter', categoryCollection)
 
 export default menuRouter;
