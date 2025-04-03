@@ -9,12 +9,12 @@ import contactRouter from './contact.js';
 
 const router = Router();
 
-router.use('/api/bars', barsRouter);
-router.use('/api/menu', menuRouter);
-router.use('/api/construct', constructRouter);
-router.use('/api/cgu', cguRouter);
-router.use('/api/story', storyRouter);
-router.use('/api/commande', commandeRouter);
-router.use('/api/contact', contactRouter);
+router.use('/bars', barsRouter);
+router.use('/menu', menuRouter);
+router.use('/construct', constructRouter);
+router.use('/cgu', cguRouter);
+router.use('/story', storyRouter);
+router.use('/commande', commandeRouter);
+router.use('/contact', contactRouter);
 
 export default router;

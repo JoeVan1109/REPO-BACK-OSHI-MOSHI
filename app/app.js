@@ -15,8 +15,8 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-    origin: 'https://oshimoshi.fr',
-    methods: 'GET, POST, OPTIONS',
+    origin: ['https://oshimoshi.fr', 'http://localhost:3456', 'http://oshimoshi.fr:5173'],
+    methods: 'GET, POST, PUT, DELETE, OPTIONS',
     allowedHeaders: 'Content-Type, Authorization',
     credentials: true
 };
