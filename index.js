@@ -20,6 +20,7 @@ sequelize.authenticate()
 
 
 // Start the server and listen on the specified port
-server.listen(PORT, () => {
-  console.log(`🚀 Server ready at http://194.164.55.193:${PORT}`); // Log the server URL to the console
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server ready at http://194.164.55.193:${PORT}`);
 });
+
