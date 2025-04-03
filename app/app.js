@@ -39,9 +39,5 @@ app.use('/api', indexRouter);
 const distPath = '/var/www/frontend/dist';
 app.use(express.static(distPath));
 
-// Handle SPA routing (React/Vue/Angular with Router)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(distPath, 'index.html'));
-});
 
 export default app;
