@@ -240,7 +240,7 @@ INSERT INTO oshimoshi.bubble_tea (id, name, image, color, icone, milk_name, crea
 
 
 -- Insertion dans la table collection
-INSERT INTO oshimoshi.collection (id, name, image_collection, prixL, prixXL, created_at, updated_at, bubble_tea_id) VALUES
+INSERT INTO oshimoshi.collection (id, name, image_collection, prix_l, prix_xl, created_at, updated_at, bubble_tea_id) VALUES
 (1, 'Collection Florale', 'collection-florale.png', 6, 7, '2025-02-28 15:42:56', NULL, NULL),
 (2, 'Collection Magique', NULL, 8, NULL, '2025-02-28 15:42:56', NULL, NULL),
 (3, 'Collection Olympe', NULL, 9, NULL, '2025-02-28 15:42:56', NULL, NULL),
