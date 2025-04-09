@@ -7,6 +7,9 @@
 SET NAMES utf8mb4;
 SET sql_mode = 'STRICT_TRANS_TABLES';
 
+SET FOREIGN_KEY_CHECKS = 0;
+
+
 
 DROP TABLE IF EXISTS oshimoshi.collection_bubble_tea;
 DROP TABLE IF EXISTS oshimoshi.bubble_tea_pearl;
@@ -374,3 +377,4 @@ ALTER TABLE oshimoshi.collection_bubble_tea ADD CONSTRAINT collection_bubble_tea
 ALTER TABLE oshimoshi.collection ADD CONSTRAINT collection_bubble_tea_id_fkey FOREIGN KEY (bubble_tea_id) REFERENCES oshimoshi.bubble_tea(id);
 
 
+SET FOREIGN_KEY_CHECKS = 1;
